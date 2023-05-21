@@ -1,6 +1,19 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :books
+  resources :loans
+  resources :book_reviews
+  resources :ratings
+  resources :book_places
+  resources :floors
+  resources :authors
+  resources :genres
+  resources :members
+  resources :staffs
+  resources :departments
+  resources :libraries
+  resources :managers
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => '/sidekiq'
     end
